@@ -1,0 +1,139 @@
+// -------------------- import templates mixins --------------------
+
+@import './metricTemplates';
+
+// -------------------- colors --------------------
+
+$main_text: var(--main_text);
+$main_border: var(--border_main);
+$secondary-text: var(--secondary_text);
+$accent_ui_color: var(--accent_ui_color);
+$blue: var(--blue);
+
+
+// -------------------- vars --------------------
+
+$dash-loading-height: 3px;
+
+// -------------------- mixins --------------------
+
+@mixin text-truncated(){
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+@mixin container-height($dash-header-height) {
+  height: calc(100% - (#{$dash-header-height} + #{$dash-loading-height}))
+}
+
+// -------------------- styles --------------------
+
+
+.metrics-container::v-deep {
+  display: flex;
+  flex-direction: column;
+  overflow: auto;
+  @include container-height(35px);
+
+  &::-webkit-scrollbar {
+    width: 6px;
+  }
+
+  &::-webkit-scrollbar-track {
+    background-color: transparent;
+  }
+
+  &::-webkit-scrollbar-thumb {
+    background-color: $main_border;
+  }
+
+  &.header-active {
+    @include container-height(35px);
+  }
+
+  &.is-header-open {
+    @include container-height(0px);
+  }
+
+  @media screen and (max-width: 1600px) {
+    &.header-active {
+      @include container-height(25px);
+    }
+
+    &.is-header-open {
+      @include container-height(0px);
+    }
+  }
+
+  .header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    .data-title {
+      color: $secondary-text;
+      font-size: 12px;
+      font-weight: 400;
+      line-height: 15px;
+      letter-spacing: 1.25px;
+      text-transform: uppercase;
+      @include text-truncated();
+    }
+
+    .settings-icon {
+      margin-left: 8px;
+      color: $secondary-text;
+    }
+  }
+
+  .content {
+    display: grid;
+    gap: 10px;
+    @include templates-for-all-metric-variants();
+
+    .item {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      @include text-truncated();
+
+      .metric-title {
+        display: flex;
+        align-items: center;
+        @include text-truncated();
+
+        .icon {
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          fill: $secondary-text;
+          padding-right: 4px;
+        }
+
+        .title-text {
+          color: $secondary-text;
+          font-size: 12px;
+          font-weight: 400;
+          line-height: 15px;
+          @include text-truncated();
+        }
+      }
+
+      .metric-value {
+        text-align: left;
+        flex-wrap: wrap;
+        @include text-truncated();
+
+        &.color-main {
+          color: $blue
+        }
+
+        &.color-secondary {
+          color: $secondary-text
+        }
+      }
+    }
+  }
+}

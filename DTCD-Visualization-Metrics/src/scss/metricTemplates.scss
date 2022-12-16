@@ -1,0 +1,248 @@
+@mixin gtr($rows) {
+  grid-template-rows: repeat(#{$rows}, 1fr)
+}
+
+@mixin gtc($cols) {
+  grid-template-columns: repeat(#{$cols}, 1fr)
+}
+
+// -------------------- template for 1 metric --------------------
+
+@mixin metric-1-v-1() {
+  &.metric-1.v-1 {
+    @include gtr(1);
+    @include gtc(1);
+    grid-template-areas: 'item-1';
+  }
+}
+// -------------------- templates for 2 metrics --------------------
+
+@mixin metric-2-v-1() {
+  &.metric-2.v-1 {
+    @include gtr(1);
+    @include gtc(2);
+    grid-template-areas: 'item-1 item-2'
+  }
+}
+
+@mixin metric-2-v-2() {
+  &.metric-2.v-2 {
+    @include gtr(2);
+    @include gtc(1);
+    grid-template-areas: 'item-1' 'item-2';
+  }
+}
+
+@mixin templates-for-2-metrics() {
+  @include metric-2-v-1();
+  @include metric-2-v-2();
+}
+
+// -------------------- templates for 3 metrics --------------------
+
+@mixin metric-3-v-1() {
+  &.metric-3.v-1 {
+    @include gtr(2);
+    @include gtc(2);
+    grid-template-areas: 'item-1 item-2' 'item-1 item-3'
+  }
+}
+
+@mixin metric-3-v-2() {
+  &.metric-3.v-2 {
+    @include gtr(2);
+    @include gtc(2);
+    grid-template-areas: 'item-1 item-3' 'item-2 item-3'
+  }
+}
+
+@mixin metric-3-v-3() {
+  &.metric-3.v-3 {
+    @include gtr(2);
+    @include gtc(2);
+    grid-template-areas: 'item-1 item-1' 'item-2 item-3';
+  }
+}
+
+@mixin metric-3-v-4() {
+  &.metric-3.v-4 {
+    @include gtr(2);
+    @include gtc(2);
+    grid-template-areas: 'item-1 item-2' 'item-3 item-3'
+  }
+}
+
+@mixin metric-3-v-5() {
+  &.metric-3.v-5 {
+    @include gtr(1);
+    @include gtc(3);
+    grid-template-areas: 'item-1 item-2 item-3'
+  }
+}
+
+@mixin metric-3-v-6() {
+  &.metric-3.v-6 {
+    @include gtr(3);
+    @include gtc(1);
+    grid-template-areas: 'item-1' 'item-2' 'item-3'
+  }
+}
+
+@mixin templates-for-3-metrics() {
+  @include metric-3-v-1();
+  @include metric-3-v-2();
+  @include metric-3-v-3();
+  @include metric-3-v-4();
+  @include metric-3-v-5();
+  @include metric-3-v-6();
+}
+
+// -------------------- templates for 4 metrics --------------------
+
+@mixin metric-4-v-1() {
+  &.metric-4.v-1 {
+    @include gtr(2);
+    @include gtc(2);
+    grid-template-areas: 'item-1 item-2' 'item-3 item-4';
+  }
+}
+@mixin metric-4-v-2() {
+  &.metric-4.v-2 {
+    @include gtr(2);
+    @include gtc(3);
+    grid-template-areas: 'item-1 item-1 item-1' 'item-2 item-3 item-4';
+  }
+}
+
+@mixin metric-4-v-3() {
+  &.metric-4.v-3 {
+    @include gtr(2);
+    @include gtc(3);
+    grid-template-areas: 'item-1 item-2 item-3' 'item-4 item-4 item-4'
+  }
+}
+
+@mixin metric-4-v-4() {
+  &.metric-4.v-4 {
+    @include gtr(3);
+    @include gtc(2);
+    grid-template-areas: 'item-1 item-2' 'item-1 item-3' 'item-1 item-4'
+  }
+}
+
+@mixin metric-4-v-5() {
+  &.metric-4.v-5 {
+    @include gtr(3);
+    @include gtc(2);
+    grid-template-areas: 'item-1 item-4' 'item-2 item-4' 'item-3 item-4'
+  }
+}
+
+@mixin metric-4-v-6() {
+  &.metric-4.v-6 {
+    @include gtr(4);
+    @include gtc(1);
+    grid-template-areas: 'item-1' 'item-2' 'item-3' 'item-4'
+  }
+}
+
+@mixin metric-4-v-7() {
+  &.metric-4.v-7 {
+    @include gtr(1);
+    @include gtc(4);
+    grid-template-areas: 'item-1 item-2 item-3 item-4'
+  }
+}
+
+@mixin templates-for-4-metrics() {
+  @include metric-4-v-1();
+  @include metric-4-v-2();
+  @include metric-4-v-3();
+  @include metric-4-v-4();
+  @include metric-4-v-5();
+  @include metric-4-v-6();
+  @include metric-4-v-7();
+}
+
+// -------------------- templates for 5 metrics --------------------
+
+@mixin metric-5-v-1() {
+  &.metric-5.v-1 {
+    @include gtr(3);
+    @include gtc(2);
+    grid-template-areas: 'item-1 item-1' 'item-2 item-3' 'item-4 item-5'
+  }
+}
+
+@mixin metric-5-v-2() {
+  &.metric-5.v-2 {
+    @include gtr(3);
+    @include gtc(2);
+    grid-template-areas: 'item-1 item-2' 'item-3 item-4' 'item-5 item-5'
+  }
+}
+
+@mixin metric-5-v-3() {
+  &.metric-5.v-3 {
+    @include gtr(5);
+    @include gtc(1);
+    grid-template-areas: 'item-1' 'item-2' 'item-3' 'item-4' 'item-5'
+  }
+}
+
+@mixin metric-5-v-4() {
+  &.metric-5.v-4 {
+    @include gtr(1);
+    @include gtc(5);
+    grid-template-areas: 'item-1 item-2 item-3 item-4 item-5'
+  }
+}
+
+@mixin metric-5-v-5() {
+  &.metric-5.v-5 {
+    @include gtr(1);
+    @include gtc(5);
+    grid-template-areas: 'item-1 item-2 item-3 item-4 item-5'
+  }
+}
+
+@mixin templates-for-5-metrics() {
+  @include metric-5-v-1();
+  @include metric-5-v-2();
+  @include metric-5-v-3();
+  @include metric-5-v-4();
+}
+
+// -------------------- templates for 5 metrics --------------------
+
+@mixin metric-6-v-1() {
+  &.metric-6.v-1 {
+    @include gtr(3);
+    @include gtc(2);
+    grid-template-areas: 'item-1 item-2' 'item-3 item-4' 'item-5 item-6'
+  }
+}
+
+@mixin metric-6-v-2() {
+  &.metric-6.v-2 {
+    @include gtr(2);
+    @include gtc(3);
+    grid-template-areas: 'item-1 item-2 item-3' 'item-4 item-5 item-6'
+  }
+}
+
+@mixin templates-for-6-metrics() {
+  @include metric-6-v-1();
+  @include metric-6-v-2();
+}
+
+// -------------------- templates for all metric variants --------------------
+
+@mixin templates-for-all-metric-variants() {
+  @include metric-1-v-1();
+  @include templates-for-2-metrics();
+  @include templates-for-3-metrics();
+  @include templates-for-4-metrics();
+  @include templates-for-5-metrics();
+  @include templates-for-6-metrics();
+}
